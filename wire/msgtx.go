@@ -103,10 +103,9 @@ const (
 	maxWitnessItemsPerInput = 500000
 
 	// maxWitnessItemSize is the maximum allowed size for an item within
-	// an input's witness data. This number is derived from the fact that
-	// for script validation, each pushed item onto the stack must be less
-	// than 10k bytes.
-	maxWitnessItemSize = 11000
+	// an input's witness data. This value is bounded by the largest
+	// possible block size, post segwit v1 (taproot).
+	maxWitnessItemSize = 4_000_000
 )
 
 // witnessMarkerBytes are a pair of bytes specific to the witness encoding. If
